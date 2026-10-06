@@ -11,6 +11,8 @@ on:
       - "go.mod"
       - "go.sum"
       - "frontend/**"
+      - ".github/workflows/codeql.yml"
+  workflow_dispatch:
   schedule:
     - cron: "18 2 * * 2"
 
