@@ -434,6 +434,7 @@ export const ClientSchema = z.object({
   allowedIPs: z.array(z.string()).optional(),
   allowedIPsByInbound: z.record(z.number().int(), z.array(z.string())).optional(),
   auth: z.string().optional(),
+  clientHostRuleIds: z.array(z.number().int()).optional(),
   comment: z.string(),
   created_at: z.number().int().optional(),
   email: z.string(),
@@ -488,6 +489,7 @@ export const ClientRecordSchema = z.object({
   adTag: z.string(),
   allowedIPs: z.string(),
   auth: z.string(),
+  clientHostRuleIds: z.array(z.number().int()).optional(),
   comment: z.string(),
   createdAt: z.number().int(),
   email: z.string(),
@@ -696,6 +698,8 @@ export const HostSchema = z.object({
   serverDescription: z.string().max(64),
   shuffleHost: z.boolean(),
   sni: z.string(),
+  sniSharedRandom: z.boolean(),
+  snis: z.array(z.string()).optional(),
   sockoptParams: z.unknown(),
   sortOrder: z.number().int(),
   tags: z.array(z.string()),
@@ -734,6 +738,8 @@ export const HostGroupSchema = z.object({
   serverDescription: z.string().max(64),
   shuffleHost: z.boolean(),
   sni: z.string(),
+  sniSharedRandom: z.boolean(),
+  snis: z.array(z.string()),
   sockoptParams: z.string(),
   sortOrder: z.number().int(),
   tags: z.array(z.string()),
@@ -906,6 +912,7 @@ export const NodeSchema = z.object({
   status: z.string(),
   tlsVerifyMode: z.enum(['verify', 'skip', 'pin', 'mtls']),
   transitive: z.boolean().optional(),
+  unavailableMetrics: z.array(z.string()).optional(),
   updatedAt: z.number().int(),
   uptimeSecs: z.number().int(),
   xrayError: z.string(),
@@ -971,6 +978,7 @@ export const NodeViewSchema = z.object({
   status: z.string(),
   tlsVerifyMode: z.string(),
   transitive: z.boolean().optional(),
+  unavailableMetrics: z.array(z.string()).optional(),
   updatedAt: z.number().int(),
   uptimeSecs: z.number().int(),
   xrayError: z.string(),
@@ -1017,6 +1025,7 @@ export const ProbeResultUISchema = z.object({
   memPct: z.number(),
   panelVersion: z.string(),
   status: z.string(),
+  unavailableMetrics: z.array(z.string()).optional(),
   uptimeSecs: z.number().int(),
   xrayError: z.string(),
   xrayState: z.string(),
@@ -1129,6 +1138,14 @@ export const SubBalancerSchema = z.object({
   updatedAt: z.number().int(),
 });
 export type SubBalancer = z.infer<typeof SubBalancerSchema>;
+
+export const TgBotCapabilitiesSchema = z.object({
+  groupPrivacy: z.boolean(),
+  inlineEnabled: z.boolean(),
+  running: z.boolean(),
+  username: z.string(),
+});
+export type TgBotCapabilities = z.infer<typeof TgBotCapabilitiesSchema>;
 
 export const TrafficSchema = z.object({
   Down: z.number().int(),

@@ -413,6 +413,7 @@ export interface Client {
   allowedIPs?: string[];
   allowedIPsByInbound?: Record<number, string[]>;
   auth?: string;
+  clientHostRuleIds?: number[];
   comment: string;
   created_at?: number;
   email: string;
@@ -464,6 +465,7 @@ export interface ClientRecord {
   adTag: string;
   allowedIPs: string;
   auth: string;
+  clientHostRuleIds?: number[];
   comment: string;
   createdAt: number;
   email: string;
@@ -656,6 +658,8 @@ export interface Host {
   serverDescription: string;
   shuffleHost: boolean;
   sni: string;
+  sniSharedRandom: boolean;
+  snis?: string[];
   sockoptParams: unknown;
   sortOrder: number;
   tags: string[];
@@ -693,6 +697,8 @@ export interface HostGroup {
   serverDescription: string;
   shuffleHost: boolean;
   sni: string;
+  sniSharedRandom: boolean;
+  snis: string[];
   sockoptParams: string;
   sortOrder: number;
   tags: string[];
@@ -853,6 +859,7 @@ export interface Node {
   status: string;
   tlsVerifyMode: string;
   transitive?: boolean;
+  unavailableMetrics?: string[];
   updatedAt: number;
   uptimeSecs: number;
   xrayError: string;
@@ -916,6 +923,7 @@ export interface NodeView {
   status: string;
   tlsVerifyMode: string;
   transitive?: boolean;
+  unavailableMetrics?: string[];
   updatedAt: number;
   uptimeSecs: number;
   xrayError: string;
@@ -958,6 +966,7 @@ export interface ProbeResultUI {
   memPct: number;
   panelVersion: string;
   status: string;
+  unavailableMetrics?: string[];
   uptimeSecs: number;
   xrayError: string;
   xrayState: string;
@@ -1062,6 +1071,13 @@ export interface SubBalancer {
   sortOrder: number;
   strategy: string;
   updatedAt: number;
+}
+
+export interface TgBotCapabilities {
+  groupPrivacy: boolean;
+  inlineEnabled: boolean;
+  running: boolean;
+  username: string;
 }
 
 export interface Traffic {

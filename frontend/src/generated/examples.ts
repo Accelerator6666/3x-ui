@@ -417,6 +417,10 @@ export const EXAMPLES: Record<string, unknown> = {
     ],
     "allowedIPsByInbound": {},
     "auth": "",
+    "clientHostRuleIds": [
+      1,
+      2
+    ],
     "comment": "",
     "created_at": 0,
     "email": "",
@@ -506,6 +510,10 @@ export const EXAMPLES: Record<string, unknown> = {
     "adTag": "",
     "allowedIPs": "",
     "auth": "",
+    "clientHostRuleIds": [
+      1,
+      2
+    ],
     "comment": "",
     "createdAt": 0,
     "email": "",
@@ -714,6 +722,10 @@ export const EXAMPLES: Record<string, unknown> = {
     "serverDescription": "",
     "shuffleHost": false,
     "sni": "",
+    "sniSharedRandom": false,
+    "snis": [
+      ""
+    ],
     "sockoptParams": null,
     "sortOrder": 0,
     "tags": [
@@ -764,6 +776,10 @@ export const EXAMPLES: Record<string, unknown> = {
     "serverDescription": "",
     "shuffleHost": false,
     "sni": "",
+    "sniSharedRandom": false,
+    "snis": [
+      ""
+    ],
     "sockoptParams": "",
     "sortOrder": 0,
     "tags": [
@@ -936,6 +952,9 @@ export const EXAMPLES: Record<string, unknown> = {
     "status": "online",
     "tlsVerifyMode": "verify",
     "transitive": false,
+    "unavailableMetrics": [
+      ""
+    ],
     "updatedAt": 1700000000,
     "uptimeSecs": 86400,
     "xrayError": "",
@@ -1001,6 +1020,9 @@ export const EXAMPLES: Record<string, unknown> = {
     "status": "online",
     "tlsVerifyMode": "verify",
     "transitive": false,
+    "unavailableMetrics": [
+      ""
+    ],
     "updatedAt": 1700003600,
     "uptimeSecs": 86400,
     "xrayError": "",
@@ -1039,6 +1061,9 @@ export const EXAMPLES: Record<string, unknown> = {
     "memPct": 45.2,
     "panelVersion": "v3.x.x",
     "status": "online",
+    "unavailableMetrics": [
+      ""
+    ],
     "uptimeSecs": 86400,
     "xrayError": "",
     "xrayState": "",
@@ -1159,6 +1184,12 @@ export const EXAMPLES: Record<string, unknown> = {
     "sortOrder": 1,
     "strategy": "random",
     "updatedAt": 1710000000000
+  },
+  "TgBotCapabilities": {
+    "groupPrivacy": false,
+    "inlineEnabled": true,
+    "running": true,
+    "username": "xui_bot"
   },
   "Traffic": {
     "Down": 2097152,
